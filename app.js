@@ -31,7 +31,7 @@ main().then(() => {
 
 
 async function main() {
-    await mongoose.connect(dbURL,{ useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(dbURL);
 }
 
 
