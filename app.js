@@ -21,6 +21,7 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 const dbURL = process.env.ATLASDB_URL;
+console.log('MongoDB URI:', dbURL);
 
 main().then(() => {
     console.log("connected to DB");
@@ -30,7 +31,7 @@ main().then(() => {
 
 
 async function main() {
-    await mongoose.connect(dbURL);
+    await mongoose.connect(dbURL,{ useNewUrlParser: true, useUnifiedTopology: true });
 }
 
 
