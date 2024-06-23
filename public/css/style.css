@@ -165,7 +165,7 @@ body{
   #topBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed position - stays in the same place even when scrolling */
-    bottom: 20px; /* Place the button 20px from the bottom */
+    bottom: 100px; /* Place the button 20px from the bottom */
     right: 30px; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap other elements */
     border: none; /* Remove border */
@@ -194,3 +194,136 @@ body{
     top: 0.5px;
 }
 
+
+/* chatbot */
+#chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px; /* Adjust as needed */
+    height: 60px; /* Adjust as needed */
+    background-color: #007bff; /* Color of the eclipse */
+    border-radius: 50%; /* Ensures it's circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: width 0.3s, height 0.3s;
+}
+
+#chat-toggle-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px; /* Adjust as needed */
+    height: 60px; /* Adjust as needed */
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001; /* Above chat-widget */
+}
+
+#chat-icon {
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    background-color: #fff; /* Color of the message icon background */
+    border-radius: 50%; /* Ensures it's circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+#chat-icon i {
+    font-size: 20px; /* Adjust icon size as needed */
+    color: #007bff; /* Color of the message icon */
+}
+
+
+#chat-container {
+    width: 300px; /* Adjust chat widget container width */
+    height: 400px; /* Adjust chat widget container height */
+    background-color: #fff; /* Background color of chat container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    display: none; /* Initially hidden */
+    position: absolute;
+    bottom: 80px; /* Adjust position */
+    right: 0; /* Adjust position */
+    z-index: 1002; /* Above chat-toggle-btn */
+}
+
+#chat-header {
+    background-color: #007bff; /* Header background color */
+    color: #fff; /* Header text color */
+    padding: 10px; /* Padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px; /* Rounded corners for header */
+    border-top-right-radius: 8px; /* Rounded corners for header */
+}
+
+#chat-body {
+    padding: 10px; /* Padding */
+    max-height: 300px; /* Max height of chat messages */
+    overflow-y: auto; /* Scrollbar when content exceeds height */
+}
+
+#chat-messages {
+    margin-bottom: 10px; /* Margin bottom */
+}
+
+.message {
+    padding: 8px; /* Padding */
+    margin: 8px 0; /* Margin top and bottom */
+    border-radius: 4px; /* Rounded corners */
+    display: block; /* Change to block to ensure each message is on a new line */
+    clear: both; /* Ensure proper clearing */
+   
+}
+
+.message.received {
+    background-color: #f0f0f0; /* Received message background color */
+    align-self: flex-start; /* Align left */
+}
+
+.message.sent {
+    background-color: #007bff; /* Sent message background color */
+    color: #fff; /* Sent message text color */
+    align-self: flex-end; /* Align right */
+}
+
+#chat-input {
+    width: calc(100% - 80px); /* Input width */
+    padding: 8px; /* Padding */
+    border: 1px solid #ddd; /* Border */
+    border-radius: 4px; /* Rounded corners */
+    margin-right: 10px; /* Margin right */
+    resize: none; /* No resize */
+}
+
+#send-btn {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    padding: 8px 16px; /* Padding */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+}
+
+#send-btn:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+
+#chat-close-btn {
+    background: none; /* No background */
+    border: none; /* No border */
+    color: #fff; /* Text color */
+    font-size: 20px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+}

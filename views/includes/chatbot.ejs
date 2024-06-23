@@ -1,0 +1,70 @@
+<div id="chat-widget">
+    <div id="chat-toggle-btn">
+        <div id="chat-icon">
+            <i class="fas fa-comment"></i> <!-- Font Awesome message icon -->
+        </div>
+    </div>
+    <div id="chat-container">
+        <div id="chat-header">
+            <h3>Welcome to Wanderlust!</h3>
+            <button id="chat-close-btn">&times;</button>
+        </div>
+        <div id="chat-body">
+            <div id="chat-messages">
+                <!-- Chat messages go here -->
+                <div class="message received">
+                    <p>Hello! How can I help you today?</p>
+                </div>
+            </div>
+            <textarea id="chat-input" placeholder="Type your message..."></textarea>
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+const chatToggleBtn = document.getElementById('chat-toggle-btn');
+const chatContainer = document.getElementById('chat-container');
+const chatCloseBtn = document.getElementById('chat-close-btn');
+const sendBtn = document.getElementById('send-btn');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
+
+// Function to toggle chat widget visibility
+function toggleChatWidget() {
+    chatContainer.style.display = chatContainer.style.display === 'none' ? 'block' : 'none';
+}
+
+// Toggle chat widget on button click
+chatToggleBtn.addEventListener('click', toggleChatWidget);
+
+// Close chat widget
+chatCloseBtn.addEventListener('click', toggleChatWidget);
+
+// Send message
+sendBtn.addEventListener('click', function() {
+    const message = chatInput.value.trim();
+    if (message) {
+        // Add sent message to chat
+        appendMessage(message, 'sent');
+        // Here you can handle sending the message to your backend or perform any other action
+        // For now, simulate response after a delay
+        setTimeout(() => {
+            appendMessage("I'm sorry, I'm just a demo chatbot!", 'received');
+        }, 1000);
+        chatInput.value = ''; // Clear input after sending
+    }
+});
+
+// Append message to chat
+function appendMessage(message, type) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', type);
+    messageElement.textContent = message;
+    chatMessages.appendChild(messageElement);
+    // Automatically scroll chat to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+</script>
